@@ -38,13 +38,10 @@ if ( !isset( $todo ) )
 
 <table width="80%" border="1">
 <tr>
-<td>Имя</td> <td><input type="text" size="80" name="user_name" value="<?= isset ( $row['user_name'] ) ? $row['user_name'] : '' ?>"></td>
+<td>Имя</td> <td><input type="text" size="80" name="user_name" value="<?= isset ( $row['user_name'] ) ? $row['user_name'] : '' ?>"> (Сначала имя, потом фамилия!)</td>
 </tr>
 <tr>
 <td>E-mail</td> <td><input type="text" size="80" name="user_email" value="<?= isset ( $row['user_email'] ) ? $row['user_email'] : '' ?>"></td>
-</tr>
-<tr>
-<td>Мероприятия</td> <td> что-то</td>
 </tr>
 <tr>
 <td>Машина есть?</td> <td><input type="checkbox" name="user_car_use" value="1" <?= isset ( $row['user_car_exist'] ) && $row['user_car_exist'] ? 'checked' : '' ?>></td>

@@ -5,7 +5,7 @@ $local_server		= ( strpos( $_SERVER['HTTP_HOST'], 'dr.ru' ) !== false ? TRUE : F
 if ( $local_server )
     $URL = 'http://www.dr.ru/';
 else 
-    $URL = 'http://dr.vetko.net/';
+    $URL = 'http://birthday.vetko.net/';
 
 error_reporting ( E_ALL );
 
@@ -19,10 +19,10 @@ if( $local_server )
 }
 else
 {
-	$db_host_name_main	= 'localhost';
-	$db_name_main		= 'db_main';
-	$db_user_name_main	= 'ulfdyfz';
-	$db_password_main	= 'C1hd2H';
+	$db_host_name_main	= "mysql1064.servage.net";
+	$db_name_main		= 'den_rojd';
+	$db_user_name_main	= 'den_rojd';
+	$db_password_main	= 'dtnjrhtc';
 }
 
 if ( !function_exists( 'eu' ) )

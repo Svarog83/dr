@@ -86,9 +86,14 @@ while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 
 $query = "SELECT * FROM user";
 $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
+
+$UserEntReal = $UserEnt = $UserCars = array();
+
 $i = 1;
 while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 {
+	if ( $row['user_car_use'] == 1 )
+		$UserCars[] = $row['user_name'];
 
 ?>
     
@@ -107,10 +112,14 @@ if ( $row['user_ent'] )
     $arr_t_real  = array();
     if ( $row['user_ent_real'] )
         $arr_t_real = explode( ',', $row['user_ent_real'] );
+        
+    foreach ( $arr_t_real AS $ent_id )
+    	$UserEntReal[$ent_id][] = $row['user_name'];
     
     foreach ( $arr_t AS $ent_id )
     {
-        $ent .= $EntArr[$ent_id]['ent_title'] . ( in_array( $ent_id, $arr_t_real ) ? '<span title="Участвует" style="color:green; font-size:18; cursor:pointer;">(+)</span>' : '' ) . '<br>';
+        $UserEnt[$ent_id][] = $row['user_name'];
+    	$ent .= $EntArr[$ent_id]['ent_title'] . ( in_array( $ent_id, $arr_t_real ) ? '<span title="Участвует" style="color:green; font-size:18; cursor:pointer;">(+)</span>' : '' ) . '<br>';
     }
     
 }
@@ -170,6 +179,81 @@ function SendEmail( check_name )
 <input type="button" onclick="location.href='user.php'" value="Добавить пользователя">
 <input type="button" onclick="SendEmail('user_check[]');" value="Послать письмо выбранным пользователям">
 <?
+?>
+
+<br>
+<br>
+
+<table width="600" border="1">
+<tr>
+<td>Название мероприятия</td>
+<td>Приглашенны</td>
+<td>Подтвердили участие</td>
+</tr>
+<?
+	foreach ( $EntArr AS $ent_id => $ent_row )
+	{
+?>
+
+<tr>
+<td><b><?= $EntArr[$ent_id]['ent_title']?></b></td>
+<td>
+
+<?
+	if ( is_array( $UserEnt[$ent_id] ) )
+	{
+		asort( $UserEnt[$ent_id] );
+		$i = 1;
+		foreach ( $UserEnt[$ent_id]  AS $k => $name )
+		{
+			echo $i . ' ' . $name . '<br>';
+			$i++;
+		}
+		
+	}
+?>
+&nbsp;
+</td>
+
+<td>
+
+<?
+	if ( is_array( $UserEntReal[$ent_id] ) )
+	{
+		asort( $UserEntReal[$ent_id] );
+		$i = 1;
+		foreach ( $UserEntReal[$ent_id] AS $k => $name )
+		{
+			echo $i . ' ' . $name . '<br>';
+			$i++;
+		}
+		
+	}
+?>
+&nbsp;
+</td>
+
+</tr>
+
+<?
+	}
+?>
+
+</table>
+<br>
+
+На машине будут:<br>
+<?
+	asort( $UserCars );
+	$i = 1;
+	foreach ( $UserCars AS $k => $name )
+	{		
+		echo $i . ' ' . $name . '<br>';
+		$i++;
+	}
+	
+	
+
 }
 else 
 {

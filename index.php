@@ -74,37 +74,127 @@ $message = '
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
  <head>
-  <title> Наш день рождения! </title>
-  <meta name="Generator" content="EditPlus">
+  <title> Нам по 25! </title>
+  
+  <style  type="text/css">
+<!--
+body {
+ font-family: tahoma, verdana, arial, sans-serif; 
+ margin: 0px;
+ background-color: #FFFFFF;
+}
+.contentandstuff {
+	padding: 10 40 0 40;
+	background-color: #FFFFFF;
+}
+.top_menu {
+	background-color: #FFFFFF;
+}
+.topbox {
+	background-color: #FFFFFF;
+	color: #000099;
+	font-size: 1.5em;
+	text-transform: uppercase;
+}
+h1 {
+	color: #000000;
+	text-transform: bold;
+	font-size: 1.2em;
+	margin-bottom: 0px;
+	margin-top: 8px;
+}
+.toplink {
+	color: 999999;
+	padding-right: 5px;
+	padding-left: 5px;
+	border-right: 1px solid #999999;
+}
+.toplink:hover {
+	color: #CCFF00;
+}
+.line {
+	border-bottom: 1px solid #0000CC;
+	margin: 0px;
+	padding-left: 20px;
+}
+a {
+	color: #0000CC;
+	text-decoration: none;
+}
+a:hover {
+	color: #FF0000;
+	text-decoration: none;
+}
+p.text {
+	margin: 0px;
+	padding-left: 5px;
+}
+.style1 {color: #C1FF64}
+-->
+    </style>
+  
   <meta name="Author" content="">
-  <meta name="Keywords" content="">
-  <meta name="Description" content="">
+  <meta name="Keywords" content="Ветко Сергей Исайчев Игорь день рождения 25 лет">
+  <meta name="Description" content="Ветко Сергей и Исайчев Игорь отмечают 50 на двоих!">
   <META http-equiv="content-type" content="text/html; charset=utf-8"> 
  </head>
 
- <body>
-
- <? if ( isset ( $_COOKIE['cookie_pass'] ) ): ?>
-  <a href="index.php">Главная страница</a> | <a href="admin.php">Админка</a>  | <a href="admin.php?act=exit">Выйти</a> | <a href="admin.php?act=clear">Очистить куки</a>  <br>
- <?= isset ( $message ) ? '<h1 style="color:red;">'.$message.'</h1>' : '' ?>
- <? endif; ?>
+ <body text="#000000" link="#0000CC" alink="#0000CC" vlink="#666666" background="/images/balloons.jpg">
  
+ <br>
+<br><br><br>
+<table align="center" border="0" cellpadding="2" cellspacing="2" width="80">
+<tr>
+<td>
+
+
+<div class="topbox" align="center" style="width:800px; text-align:center;">
+	<img src="/images/header1.jpg" width="800"><br>
+	       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Приглашаем на наши дни рождения!
+
+</div>
+<div class="line"></div>
+
+<div style="padding-left: 30px;" class="top_menu">
+	<a class="toplink" href="/">Домой</a>
+	<? if ( isset( $UA ) &&  $UA ): ?>
+	<a class="toplink" href="#">Как добираться</a>
+	<? endif; ?>
+	
+<? if ( isset ( $_COOKIE['cookie_pass'] ) ): ?>
+  <a href="admin.php" class="toplink">Админка</a>  
+  <a href="admin.php?act=exit" class="toplink">Выйти</a> 
+  <a href="admin.php?act=clear" class="toplink">Очистить куки</a>
+ 
+ <? endif; ?>
+	
+</div>
+<div class="line"></div>
+<br />
+
+<?= isset ( $message ) ? '<h1>'.$message.'</h1>' : '' ?>
+
+<table class="contentandstuff" width="800" border="1" style="border: 1px solid black; border-collapse: collapse;"  background="/images/confetti4.gif">
+<tr>
+<td>
  
 <?
 
 if ( isset( $UA ) &&  $UA )
 {
-
-    echo 'Привет' . ( isset ( $UA['user_name'] ) ? ', ' . $UA['user_name'] : '' );
+	if ( isset (  $UA['user_name'] ) )
+		list ( $name, $fam ) = explode ( ' ', $UA['user_name'] ); 
 ?>
 
-<?= isset ( $message ) ? '<h1 style="color:red;">'.$message.'</h1><br>' : '' ?>
+<div style=" background-color: #CCFF00; color: #333333; padding-left: 30px; border-bottom: 2px #000000 solid;"><b><? echo 'Привет' . ( isset ( $name ) ? ', ' . $name : '' )?>!</b></div>
 
-<br>
-Нам очень надо знать, куда и во сколько ты собираешься приехать, чтобы вручить нам подарок.
+
+<p class="text">
+<img src="/images/bear.jpg" width="102" height="76">
+Нам очень надо знать, куда и во сколько ты собираешься приехать, чтобы вручить нам подарки.
 Для этого надо будет выбрать варианты ниже:
 
-<form name="form" method="POST" action="./">
+<form name="form" method="POST" action="./index.php">
 
 <table width="800" border="1" style="border-collapse:collapse;">
 <tr>
@@ -127,8 +217,10 @@ while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 ?>
 
 <input type="checkbox" name="user_ent[]" value="<?= $row['ent_id']?>"  <?= in_array( $row['ent_id'], $arr_t_real ) ? ' checked' : '' ?>>
-<span title="<?= $row['ent_descr']?>">
-<?= $row['ent_title']?>(<?= $row['ent_time_begin'] ?>)</span><br>
+<b><?= $row['ent_title']?></b>(<?= $row['ent_time_begin'] ?>)<br>
+<span style="padding-left: 20px; margin-left: 20px;"><i><?= $row['ent_descr']?><i></span>
+
+<div class="line"></div>
 
 <?
 }
@@ -187,6 +279,20 @@ function CheckForm()
 <br>
 <input type="button" value="Я буду!" onclick="CheckForm();">
 
+</p>
+	<br>
+		
+	
+</td>
+</tr>
+</table>
+
+<br />
+
+</td>
+</tr>
+</table>
+
 <?
 }
 else
@@ -197,6 +303,10 @@ else
 
 
 ?>
+
+<div style="position:absolute;left:345px;top:140px;"><img src="/images/PartyDrink4.gif" width="161" height="231"></div>
+
+<div style="position:absolute;left:638px;top:-5px;"><img src="/images/Party10.gif" width="74" height="120"></div>
 
  </body>
 </html>

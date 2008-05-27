@@ -12,7 +12,7 @@ if ( isset ( $users ) && $users )
     $message = '
 Привет!
     
-Мы приглашаем тебя на празднование нашего дня рождения!
+Мы приглашаем тебя на празднование наших дней рождений.
 Подробности можно узнать по адресу:
 ' . $URL . '?user_hash=REPLACE_HASH
 
@@ -33,8 +33,8 @@ if ( isset ( $users ) && $users )
 'Content-type: text/plain; charset=utf-8';
        
          mail ( $row['user_email'], 'Приглашение на день рождения!', str_replace( "REPLACE_HASH", $hash, $message ), $headers );
-         $query = "UPDATE user SET user_hash='$hash', user_email_sent=1 WHERE user_id={$row['user_id']}";
-         $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
+         $query_upd = "UPDATE user SET user_hash='$hash', user_email_sent=1 WHERE user_id={$row['user_id']}";
+         $result_upd = mysql_query( $query_upd ) or eu( __FILE__, __LINE__, $query_upd );
          
          header( "Location: admin.php?message=Сообщения отправлены");
     }
