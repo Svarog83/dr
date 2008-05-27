@@ -119,7 +119,7 @@ if ( $row['user_ent'] )
     foreach ( $arr_t AS $ent_id )
     {
         $UserEnt[$ent_id][] = $row['user_name'];
-    	$ent .= $EntArr[$ent_id]['ent_title'] . ( in_array( $ent_id, $arr_t_real ) ? '<span title="Участвует" style="color:green; font-size:18; cursor:pointer;">(+)</span>' : '' ) . '<br>';
+    	$ent .= '<nobr>' . $EntArr[$ent_id]['ent_title'] . ( in_array( $ent_id, $arr_t_real ) ? '<span title="Участвует" style="color:green; font-size:18; cursor:pointer;">(+)</span>' : '' ) . '</nobr><br>';
     }
     
 }
