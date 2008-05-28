@@ -139,6 +139,16 @@ p.text {
   <META http-equiv="content-type" content="text/html; charset=utf-8"> 
  </head>
 
+ <script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-108101-2");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+ 
  <body text="#000000" link="#0000CC" alink="#0000CC" vlink="#666666" background="/images/balloons.jpg">
  
  <br>
@@ -147,9 +157,8 @@ p.text {
 <tr>
 <td>
 
-
 <div class="topbox" align="center" style="width:800px; text-align:center;">
-	<img src="/images/header1.jpg" width="800"><br>
+	<img src="/images/header1.jpg" width="800" id="header_image" height="264"><br>
 	       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Приглашаем на наши дни рождения!
 
 </div>
@@ -157,10 +166,6 @@ p.text {
 
 <div style="padding-left: 30px;" class="top_menu">
 	<a class="toplink" href="/">Домой</a>
-	<? if ( isset( $UA ) &&  $UA ): ?>
-	<a class="toplink" href="#">Как добираться</a>
-	<? endif; ?>
-	
 <? if ( isset ( $_COOKIE['cookie_pass'] ) ): ?>
   <a href="admin.php" class="toplink">Админка</a>  
   <a href="admin.php?act=exit" class="toplink">Выйти</a> 
@@ -191,8 +196,71 @@ if ( isset( $UA ) &&  $UA )
 
 <p class="text">
 <img src="/images/bear.jpg" width="102" height="76">
-Нам очень надо знать, куда и во сколько ты собираешься приехать, чтобы вручить нам подарки.
-Для этого надо будет выбрать варианты ниже:
+Если ты попал на эту страницу – значит эти два оборванца будут рады увидеть тебя на праздновании своих дней рождений (на всякий случай напоминаю: 31.05.1983 – Urod, 01.06.1983 - Hohol).
+<br>
+<br>
+
+<b>Краткое расписание дня рождения:</b>
+<br>
+<li>12:00 – встреча и выезд на Пейнтбол (место встречи - на бензоколонке на Новой Каширке за МКАДом <a href="http://maps.yandex.ru/map.xml?mapID=2000&mapX=4195773&mapY=7437500&scale=11&slices=2.3" target="_blank">Место встречи на карте</a>);
+<li>13:00 – 16:00 - игра в Пейнтбол;
+<li>16:00-18:00 – шашлык с различными напитками и активным обсуждением прошедших игр;
+<li>После 18:00 все желающие приглашаются на Дачу к Сергею(<a href="/images/path_to_vetko.jpg" target="_blank">Схема проезда</a>);
+<br>
+<br>
+<b>Перечень услуг предоставляемых на даче «У Hohla@Uroda» по системе «All Inclusive»</b>
+<li>	Алкогольный бар
+<li>	Местная кухня
+<li>	Баня 
+<li>	Биллиард
+<li>	Настольный теннис
+<li>	Кальян
+<li>	Танцы
+<li>	Волейбол
+<li>	Прогулки на свежем воздухе
+<br>
+
+<i>Прим: программа «Уборка после пьянки» включена в стоимость тура.</i>
+
+<br><br>
+
+<b>Так же за отдельную плату предоставляются следующие услуги:</b>
+<li>    Мытье машин
+<li>	Катание на Именинниках
+<li>	Битье посуды
+<br>
+
+<i>Прим: Полный перечень и стоимоть доп. услуг уточняйте у Туроператора.</i>
+
+<br>
+<br>
+<b>Пейнтбол</b>
+<br>
+
+Приблизительное количество наших людей, желающих поиграть в пейнтбол, равно 10. В связи с этим был приглашен Моисеев Михаил (работал вместе с Urod-ом) с компанией людей (вполне адекватных). При этом количество человек играющих в пейнтбол увеличилось до 18-22. Мы не думаем, что эти люди помешают нам каким-либо образом наслаждаться природой и всем вокруг происходящим, а только дополнят общую картину праздника. <a href="http://www.ad-paintball.ru/ru/clubs/c_detail.php?ID=35233&BID=22" target="_blank">Сайт пейнтбольного клуба</a> (<a href="http://www.ad-paintball.ru/upload/p8nt_4_all/map001.jpg" target="_blank">Схема проезда</a>)
+<br>
+<br>
+
+<b>Стоимость</b>
+<br>
+
+
+Расходы на входной билет на пейнтбол, включающий в себя: маску, одежду, оружие, перчатки и одну коробку(2000 штук) шариков мы взяли на себя. От ТЕБЯ нам понадобится оплата расходов на дополнительные шарики.<br>
+<i>
+Для справки: в пейнтбол играют желатиновыми шариками с краской. В среднем начинающий (читай 1 раз играющий) тратит не более 200 шариков за игру (могут убить сразу и тогда вообще получится 10-15 шт), коробка шариков 2000 шт. стоит 2800 руб (скорее всего мы разделим 2 компании). В итоге на все игровое время ТЕБЕ понадобится приблизительно 600-700 руб. (может меньше, как пойдет).
+</i>
+<br>
+<br>
+<b>Решение</b>
+<br>
+
+От ТЕБЯ необходимо принять решение, на какую часть праздника ты хочешь попасть и в каких мероприятиях ты будешь участвовать. Для этого ответь на несколько простых вопросов, комментарии обязательны. Если есть вопросы отправляем на Email: <a href="mailto:urod_i_hohol@vetko.net">urod_i_hohol@vetko.net</a>
+
+<br>
+<br>
+<center><h1>ЗЫ: ТЫ ДОЛЖЕН ТАМ БЫТЬ!!!</h1></center>
+
+<div class="line"></div>
 
 <form name="form" method="POST" action="./index.php">
 
@@ -307,6 +375,81 @@ else
 <div style="position:absolute;left:345px;top:140px;"><img src="/images/PartyDrink4.gif" width="161" height="231"></div>
 
 <div style="position:absolute;left:638px;top:-5px;"><img src="/images/Party10.gif" width="74" height="120"></div>
+
+<script language="JavaScript">
+<!--
+
+
+obj_img = document.getElementById('header_image');
+function PreLoadNextImg( i )
+{
+    next_img = new Image();
+    next_img.src = "/images/header"+i+".jpg";
+    return true;
+}
+
+function SetImg( i )
+{
+//    alert ( 'next_img = ' + next_img.src );
+        obj_img.src = "/images/header"+i+".jpg";
+//    obj_img.src = "/images/header2.jpg";
+//    alert ( 'obj_img = ' + obj_img.src );
+}
+
+
+var i = 2;
+while ( i < 8 )
+{
+    PreLoadNextImg ( i );
+    i++;
+}
+   
+var steps = new Array();
+steps[steps.length] = "SetImg(1);";
+steps[steps.length] = "SetImg(2);";
+steps[steps.length] = "SetImg(3);";
+steps[steps.length] = "SetImg(4);";
+steps[steps.length] = "SetImg(5);";
+steps[steps.length] = "SetImg(6);";
+steps[steps.length] = "SetImg(7);";
+    
+
+
+var currentStep = 0;
+var cycles = 0;
+function execute()
+{
+    
+    /*alert ( currentStep);
+    alert ( 'len = ' + steps.length );*/
+    if (currentStep == steps.length )
+    { 
+        if ( cycles < 10 )
+        {
+            currentStep = 0;
+            cycles++
+        }
+        else
+        {
+            return;
+        }
+        
+    }
+//    return;
+    
+    window.eval(steps[currentStep]);
+    currentStep++;
+    window.setTimeout('execute()', 5000);
+}
+
+/*for ( var i = 0; i < 10; i ++ )
+{
+    currentStep = 0;*/
+    execute();
+//}
+
+//-->
+</script>
 
  </body>
 </html>
