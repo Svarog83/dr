@@ -82,7 +82,7 @@ while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 else 
 {
     $user_id = ( isset ( $user_id ) ? (int)$user_id : '' );
-    $user_ent = ( is_array ( $user_ent ) ? implode ( ',', $user_ent ) : '' );
+    $user_ent = ( isset ( $user_ent ) && is_array ( $user_ent ) ? implode ( ',', $user_ent ) : '' );
     $query = "
     " . ( $user_id ? "UPDATE" : "INSERT INTO" ) . "
     user
