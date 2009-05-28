@@ -1,6 +1,6 @@
 <?
 
-if ( !isset ( $_COOKIE['cookie_pass'] ) || $_COOKIE['cookie_pass'] != 'just_pass' )
+if ( !isset ( $_COOKIE['cookie_pass20092009'] ) || $_COOKIE['cookie_pass2009'] != 'just_pass' )
     header( "Location: admin.php?act=exit" );
 require_once( 'config_main.php' );
 

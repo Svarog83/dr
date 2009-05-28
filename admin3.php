@@ -2,8 +2,8 @@
 
 if ( $act == 'exit' )
 {
-    unset ( $_COOKIE['cookie_pass20092009'] );
-    setcookie("cookie_pass2009", '', time()-3600*6000 ); 
+    unset ( $_COOKIE['cookie_pass'] );
+    setcookie("cookie_pass", '', time()-3600*6000 ); 
     header( "Location: admin.php" );
     $auth = false;
     exit();
@@ -20,7 +20,7 @@ if ( isset ( $pass ) )
     if ( $pass == 'wearethebest' )
     {
         $auth = true;
-        setcookie("cookie_pass2009", 'just_pass', time()+3600*6000 ); 
+        setcookie("cookie_pass", 'just_pass', time()+3600*6000 ); 
     }
     else
     {
@@ -28,7 +28,7 @@ if ( isset ( $pass ) )
     }
     
 }
-else if ( isset ( $_COOKIE['cookie_pass2009'] ) && $_COOKIE['cookie_pass2009'] == 'just_pass' )
+else if ( isset ( $_COOKIE['cookie_pass'] ) && $_COOKIE['cookie_pass'] == 'just_pass' )
     $auth = true;
 
 
@@ -52,7 +52,6 @@ else if ( isset ( $_COOKIE['cookie_pass2009'] ) && $_COOKIE['cookie_pass2009'] =
  <?= isset ( $message ) ? '<h1 style="color:red;">'.$message.'</h1>' : '' ?>
  
 <? 
-
 if ( isset ( $sort_by ) )
 	$sort_by_old = $sort_by;
 	
@@ -68,13 +67,12 @@ if ( isset ( $auth ) && $auth )
 <table width="90%" border="1">
 <tr>
 <td>No</td>
-<td><a href="admin.php?sort_field=name&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Имя</a></td>
-
+<td><a href="admin.php?sort_field=name&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">�?мя</a></td>
 <td>E-mail</td>
 <td>Мероприятия</td>
 <td>Машина</td>
-<td title="Отправлено?"><a href="admin.php?sort_field=sent&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Отп.</a></td>
-<td  title="Подтверждено?"><a href="admin.php?sort_field=confirm&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Подтв.</a></td>
+<td title="Отправлено?"><a href="admin.php?sort_field=sent&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Отп?</a></td>
+<td  title="Подтвердил?"><a href="admin.php?sort_field=confirm&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Подт?</a></td>
 <td>Пожелания</td>
 <td>Редактировать</td>
 <td>Удалить</td>
@@ -84,11 +82,10 @@ if ( isset ( $auth ) && $auth )
 require_once( 'config_main.php' );
 
 $EntArr  = array();
-$query = "SELECT * FROM ent ORDER BY ent_id";
+$query = "SELECT * FROM ent";
 $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
 while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
     $EntArr[$row['ent_id']] = $row;
-
 
 
 $arr_sort = array();
@@ -103,16 +100,15 @@ if ( isset ( $sort_field ) && isset ( $arr_sort[$sort_field] )  && isset( $sort_
 $query = "SELECT * FROM user" .  $add_query;
 $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
 
-$UserEntReal = $UserEnt = $UserCars = array();
+$UserEntReal = $UserEnt = $UserCars = $UserNoCars = array();
 
 $i = 1;
 while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 {
 	if ( $row['user_car_use'] == 1 )
 		$UserCars[] = $row['user_name'];
-	else if ( $row['user_confirm'] )
+	else 
 		$UserNoCars[] = $row['user_name'];
-
 
 ?>
     
@@ -148,7 +144,7 @@ if ( $ent == '' )
 
 echo $ent;
 ?></td>
-<td><?= $row['user_car_exist'] ? 'Есть' : 'Нет'?><?= $row['user_car_exist'] ? ( $row['user_car_use'] == 1 ? '<font color="green">, на машине</font>' : '<font color="red">, без машины</font>' ) : '' ?></td>
+<td><?= $row['user_car_exist'] ? 'Есть' : 'Нет'?><?= $row['user_car_exist'] && $row['user_confirm'] ? ( $row['user_car_use'] == 1 ? '<font color="green">, на машине</font>' : '<font color="red">, без машины</font>' ) : '' ?></td>
 <td><?= $row['user_email_sent'] ? 'Да' : 'Нет' ?></td>
 <td><?= $row['user_confirm'] ? 'Да' : 'Нет' ?></td>
 <td><?= $row['user_remarks'] ? htmlspecialchars( stripslashes( $row['user_remarks'] ) ) : 'Нет' ?></td>
@@ -264,7 +260,7 @@ function SendEmail( check_name )
 </table>
 <br>
 
-<b>На машине будут:</b><br>
+На машине будут:<br>
 <?
 	asort( $UserCars );
 	$i = 1;
@@ -273,20 +269,9 @@ function SendEmail( check_name )
 		echo $i . ' ' . $name . '<br>';
 		$i++;
 	}
-
-?>
-<br>
-<b>Без машины:</b>	<br>
-
-<?
-	asort( $UserNoCars );
-	$i = 1;
-	foreach ( $UserNoCars AS $k => $name )
-	{		
-		echo $i . ' ' . $name . '<br>';
-		$i++;
-	}
 	
+	
+
 }
 else 
 {

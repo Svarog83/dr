@@ -81,23 +81,24 @@ $message = '
 body {
  font-family: tahoma, verdana, arial, sans-serif; 
  margin: 0px;
- background-color: #FFFFFF;
+ color: #FF0000;
+ background-color: #000000;
 }
 .contentandstuff {
 	padding: 10 40 0 40;
-	background-color: #FFFFFF;
+	background-color: #000000;
 }
 .top_menu {
-	background-color: #FFFFFF;
+	background-color: #000000;
 }
 .topbox {
-	background-color: #FFFFFF;
-	color: #000099;
+	background-color: #000000;
+	color: #FF0000;
 	font-size: 1.5em;
 	text-transform: uppercase;
 }
 h1 {
-	color: #000000;
+	color: #FF0000;
 	text-transform: bold;
 	font-size: 1.2em;
 	margin-bottom: 0px;
@@ -122,7 +123,7 @@ a {
 	text-decoration: none;
 }
 a:hover {
-	color: #FF0000;
+	color: #FFFFFF;
 	text-decoration: none;
 }
 p.text {
@@ -134,39 +135,16 @@ p.text {
     </style>
   
   <meta name="Author" content="">
-  <meta name="Keywords" content="Ветко Сергей Исайчев Игорь день рождения 25 лет">
-  <meta name="Description" content="Ветко Сергей и Исайчев Игорь отмечают 50 на двоих!">
+  <meta name="Keywords" content="Ветко Сергей Исайчев Игорь день рождения 26 лет">
+  <meta name="Description" content="Ветко Сергей и Исайчев Игорь отмечают 52 на двоих!">
   <META http-equiv="content-type" content="text/html; charset=utf-8"> 
  </head>
 
- <script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-108101-2");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
- 
- <body text="#000000" link="#0000CC" alink="#0000CC" vlink="#666666" background="/images/balloons.jpg">
- 
- <br>
-<br><br><br>
-<table align="center" border="0" cellpadding="2" cellspacing="2" width="80">
-<tr>
-<td>
+ <body text="#000000" link="#0000CC" alink="#0000CC" vlink="#666666">
 
-<div class="topbox" align="center" style="width:800px; text-align:center;">
-	<img src="/images/header1.jpg" width="800" id="header_image" height="264"><br>
-	       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Приглашаем на наши дни рождения!
-
-</div>
-<div class="line"></div>
-
-<div style="padding-left: 30px;" class="top_menu">
+ <div style="padding-left: 30px;" class="top_menu">
 	<a class="toplink" href="/">Домой</a>
-<? if ( isset ( $_COOKIE['cookie_pass'] ) ): ?>
+<? if ( isset ( $_COOKIE['cookie_pass20092009'] ) ): ?>
   <a href="admin.php" class="toplink">Админка</a>  
   <a href="admin.php?act=exit" class="toplink">Выйти</a> 
   <a href="admin.php?act=clear" class="toplink">Очистить куки</a>
@@ -174,12 +152,24 @@ pageTracker._trackPageview();
  <? endif; ?>
 	
 </div>
+ <br>
+<br><br><br>
+<table align="center" border="0" cellpadding="2" cellspacing="2" width="80">
+<tr>
+<td>
+
+<div class="topbox" align="center" style="width:800px; text-align:center;">
+	<img src="/images/header1.jpg" width="800" id="header_image" height="360"><br>
+	 <div id="upper_text"></div>
+
+</div>
 <div class="line"></div>
+
 <br />
 
 <?= isset ( $message ) ? '<h1>'.$message.'</h1>' : '' ?>
 
-<table class="contentandstuff" width="800" border="1" style="border: 1px solid black; border-collapse: collapse;"  background="/images/confetti4.gif">
+<table class="contentandstuff" width="800" border="1" style="color:red; border: 1px solid red; border-collapse: collapse;">
 <tr>
 <td>
  
@@ -191,74 +181,17 @@ if ( isset( $UA ) &&  $UA )
 		list ( $name, $fam ) = explode ( ' ', $UA['user_name'] ); 
 ?>
 
-<div style=" background-color: #CCFF00; color: #333333; padding-left: 30px; border-bottom: 2px #000000 solid;"><b><? echo 'Привет' . ( isset ( $name ) ? ', ' . $name : '' )?>!</b></div>
+<div style=" background-color: #CCFF00; color: #333333; padding-left: 30px; border-bottom: 2px #000000 solid;"><b><? echo 'Здравствуйте, глубокоуважаемый' . ( isset ( $name ) ? ', ' . $name : '' )?>!</b></div>
 
 
 <p class="text">
-<img src="/images/bear.jpg" width="102" height="76">
-Если ты попал на эту страницу – значит эти два оборванца будут рады увидеть тебя на праздновании своих дней рождений (на всякий случай напоминаю: 31.05.1983 – Urod, 01.06.1983 - Hohol).
+<img src="/images/cake2.jpg" width="102" height="96">
+<!--<img src="/images/cake4.gif" width="325" height="225">-->
+Мы, Ветко Сергей Александрович и Исайчев Игорь Владимирович, хотели бы пригласить Вас на торжественное мероприятие, посвященное отмечанию дней рождений двух вышеназванных господ.
 <br>
 <br>
 
-<b>Краткое расписание дня рождения:</b>
-<br>
-<li>12:00 – встреча и выезд на Пейнтбол (место встречи - на бензоколонке на Новой Каширке за МКАДом <a href="http://maps.yandex.ru/map.xml?mapID=2000&mapX=4195773&mapY=7437500&scale=11&slices=2.3" target="_blank">Место встречи на карте</a>);
-<li>13:00 – 16:00 - игра в Пейнтбол;
-<li>16:00-18:00 – шашлык с различными напитками и активным обсуждением прошедших игр;
-<li>После 18:00 все желающие приглашаются на Дачу к Сергею(<a href="/images/path_to_vetko.jpg" target="_blank">Схема проезда</a>);
-<br>
-<br>
-<b>Перечень услуг предоставляемых на даче «У Hohla@Uroda» по системе «All Inclusive»</b>
-<li>	Алкогольный бар
-<li>	Местная кухня
-<li>	Баня 
-<li>	Биллиард
-<li>	Настольный теннис
-<li>	Кальян
-<li>	Танцы
-<li>	Волейбол
-<li>	Прогулки на свежем воздухе
-<br>
 
-<i>Прим: программа «Уборка после пьянки» включена в стоимость тура.</i>
-
-<br><br>
-
-<b>Так же за отдельную плату предоставляются следующие услуги:</b>
-<li>    Мытье машин
-<li>	Катание на Именинниках
-<li>	Битье посуды
-<br>
-
-<i>Прим: Полный перечень и стоимоть доп. услуг уточняйте у Туроператора.</i>
-
-<br>
-<br>
-<b>Пейнтбол</b>
-<br>
-
-Приблизительное количество наших людей, желающих поиграть в пейнтбол, равно 10. В связи с этим был приглашен Моисеев Михаил (работал вместе с Urod-ом) с компанией людей (вполне адекватных). При этом количество человек играющих в пейнтбол увеличилось до 18-22. Мы не думаем, что эти люди помешают нам каким-либо образом наслаждаться природой и всем вокруг происходящим, а только дополнят общую картину праздника. <a href="http://www.ad-paintball.ru/ru/clubs/c_detail.php?ID=35233&BID=22" target="_blank">Сайт пейнтбольного клуба</a> (<a href="http://www.ad-paintball.ru/upload/p8nt_4_all/map001.jpg" target="_blank">Схема проезда</a>)
-<br>
-<br>
-
-<b>Стоимость</b>
-<br>
-
-
-Расходы на входной билет на пейнтбол, включающий в себя: маску, одежду, оружие, перчатки и одну коробку(2000 штук) шариков мы взяли на себя. От ТЕБЯ нам понадобится оплата расходов на дополнительные шарики.<br>
-<i>
-Для справки: в пейнтбол играют желатиновыми шариками с краской. В среднем начинающий (читай 1 раз играющий) тратит не более 200 шариков за игру (могут убить сразу и тогда вообще получится 10-15 шт), коробка шариков 2000 шт. стоит 2800 руб (скорее всего мы разделим 2 компании). В итоге на все игровое время ТЕБЕ понадобится приблизительно 600-700 руб. (может меньше, как пойдет).
-</i>
-<br>
-<br>
-<b>Решение</b>
-<br>
-
-От ТЕБЯ необходимо принять решение, на какую часть праздника ты хочешь попасть и в каких мероприятиях ты будешь участвовать. Для этого ответь на несколько простых вопросов, комментарии обязательны. Если есть вопросы отправляем на Email: <a href="mailto:urod_i_hohol@vetko.net">urod_i_hohol@vetko.net</a>
-
-<br>
-<br>
-<center><h1>ЗЫ: ТЫ ДОЛЖЕН ТАМ БЫТЬ!!!</h1></center>
 
 <div class="line"></div>
 
@@ -372,15 +305,16 @@ else
 
 ?>
 
-<div style="position:absolute;left:345px;top:140px;"><img src="/images/PartyDrink4.gif" width="161" height="231"></div>
+<!--<div style="position:absolute;left:345px;top:140px;"><img src="/images/PartyDrink4.gif" width="161" height="231"></div>
 
-<div style="position:absolute;left:638px;top:-5px;"><img src="/images/Party10.gif" width="74" height="120"></div>
+<div style="position:absolute;left:638px;top:-5px;"><img src="/images/Party10.gif" width="74" height="120"></div>-->
 
 <script language="JavaScript">
 <!--
 
 
 obj_img = document.getElementById('header_image');
+obj_text = document.getElementById('upper_text');
 function PreLoadNextImg( i )
 {
     next_img = new Image();
@@ -390,8 +324,23 @@ function PreLoadNextImg( i )
 
 function SetImg( i )
 {
-//    alert ( 'next_img = ' + next_img.src );
-        obj_img.src = "/images/header"+i+".jpg";
+	var texts = new Array();
+	texts[0] = "";
+	texts[1] = "Прошлым летом элитные бойцы";
+	texts[2] = "Получили секретное задание";
+	texts[3] = "Поздравить и уничтожить двух особо опасных";
+	texts[4] = "и очень непристойных мерзавцев.";
+	texts[5] = "Были использованы всевозможные способы";
+	texts[6] = "Но злодеям удалось скрыться в неизвестном направлении";
+	texts[7] = "Только в этом июне! Они возвращаются!";
+	texts[8] = "Этому должен быть положен конец!";
+//	texts[9] = "Раз и навсегда!";
+	texts[9] = "Ищите в боулинге вашего города!";
+	texts[10] = "Самое значимое событие этого года!";
+	
+	//    alert ( 'next_img = ' + next_img.src );
+        obj_img.src = "/images/new"+i+".jpg";
+        obj_text.innerText = texts[i];
 //    obj_img.src = "/images/header2.jpg";
 //    alert ( 'obj_img = ' + obj_img.src );
 }
@@ -412,6 +361,11 @@ steps[steps.length] = "SetImg(4);";
 steps[steps.length] = "SetImg(5);";
 steps[steps.length] = "SetImg(6);";
 steps[steps.length] = "SetImg(7);";
+
+steps[steps.length] = "SetImg(8);";
+steps[steps.length] = "SetImg(9);";
+steps[steps.length] = "SetImg(10);";
+
     
 
 
@@ -439,7 +393,16 @@ function execute()
     
     window.eval(steps[currentStep]);
     currentStep++;
-    window.setTimeout('execute()', 5000);
+    
+    var time = 2000;
+    
+    if ( currentStep >= 8 )
+    	time = 900;
+    	
+    if (currentStep == steps.length )	
+    	time = 5000;
+    
+    window.setTimeout('execute()', time);
 }
 
 /*for ( var i = 0; i < 10; i ++ )
