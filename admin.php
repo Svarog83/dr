@@ -2,7 +2,7 @@
 
 if ( $act == 'exit' )
 {
-    unset ( $_COOKIE['cookie_pass20092009'] );
+    unset ( $_COOKIE['cookie_pass2009'] );
     setcookie("cookie_pass2009", '', time()-3600*6000 ); 
     header( "Location: admin.php" );
     $auth = false;

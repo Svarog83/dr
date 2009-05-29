@@ -1,6 +1,6 @@
 <?
 
-if ( !isset ( $_COOKIE['cookie_pass20092009'] ) || $_COOKIE['cookie_pass2009'] != 'just_pass' )
+if ( !isset ( $_COOKIE['cookie_pass2009'] ) || $_COOKIE['cookie_pass2009'] != 'just_pass' )
     header( "Location: admin.php?act=exit" );
 require_once( 'config_main.php' );
 
@@ -57,7 +57,7 @@ if ( isset ( $row['user_ent'] ) )
     $arr_t = explode( ',', $row['user_ent'] );
 }
 
-$query = "SELECT * FROM ent";
+$query = "SELECT * FROM ent ORDER BY ent_id";
 $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );
 while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 {

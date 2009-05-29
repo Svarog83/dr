@@ -74,7 +74,7 @@ $message = '
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
  <head>
-  <title> Нам по 25! </title>
+  <title> Фильм 26-й... </title>
   
   <style  type="text/css">
 <!--
@@ -114,7 +114,7 @@ h1 {
 	color: #CCFF00;
 }
 .line {
-	border-bottom: 1px solid #0000CC;
+	border-bottom: 1px solid #999999;
 	margin: 0px;
 	padding-left: 20px;
 }
@@ -144,7 +144,7 @@ p.text {
 
  <div style="padding-left: 30px;" class="top_menu">
 	<a class="toplink" href="/">Домой</a>
-<? if ( isset ( $_COOKIE['cookie_pass20092009'] ) ): ?>
+<? if ( isset ( $_COOKIE['cookie_pass2009'] ) ): ?>
   <a href="admin.php" class="toplink">Админка</a>  
   <a href="admin.php?act=exit" class="toplink">Выйти</a> 
   <a href="admin.php?act=clear" class="toplink">Очистить куки</a>
@@ -159,7 +159,7 @@ p.text {
 <td>
 
 <div class="topbox" align="center" style="width:800px; text-align:center;">
-	<img src="/images/header1.jpg" width="800" id="header_image" height="360"><br>
+	<img src="/images/new1.jpg" width="800" id="header_image" height="360"><br>
 	 <div id="upper_text"></div>
 
 </div>
@@ -340,7 +340,7 @@ function SetImg( i )
 	
 	//    alert ( 'next_img = ' + next_img.src );
         obj_img.src = "/images/new"+i+".jpg";
-        obj_text.innerText = texts[i];
+        obj_text.innerHTML = texts[i];
 //    obj_img.src = "/images/header2.jpg";
 //    alert ( 'obj_img = ' + obj_img.src );
 }
@@ -394,10 +394,10 @@ function execute()
     window.eval(steps[currentStep]);
     currentStep++;
     
-    var time = 2000;
+    var time = 2500;
     
     if ( currentStep >= 8 )
-    	time = 900;
+    	time = 1400;
     	
     if (currentStep == steps.length )	
     	time = 5000;
