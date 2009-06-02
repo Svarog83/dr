@@ -73,6 +73,7 @@ if ( isset ( $auth ) && $auth )
 <td>E-mail</td>
 <td>Мероприятия</td>
 <td>Машина</td>
+<td>Пара</td>
 <td title="Отправлено?"><a href="admin.php?sort_field=sent&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Отп.</a></td>
 <td  title="Подтверждено?"><a href="admin.php?sort_field=confirm&sort_by=<?= $sort_by?>" title="Сортировать по <?= $sort_by == 'ASC' ? 'Возрастанию' : 'Убыванию' ?>">Подтв.</a></td>
 <td>Пожелания</td>
@@ -133,11 +134,19 @@ if ( $row['user_ent'] )
         $arr_t_real = explode( ',', $row['user_ent_real'] );
         
     foreach ( $arr_t_real AS $ent_id )
+    {
     	$UserEntReal[$ent_id][] = $row['user_name'];
+    	if ( $row['user_pair'] == 1 )
+    		$UserEntReal[$ent_id][] = $row['user_name'] . '(лучшая половина)';
+    		
+    }
     
     foreach ( $arr_t AS $ent_id )
     {
         $UserEnt[$ent_id][] = $row['user_name'];
+        if ( $row['user_pair_exist'] == 1 )
+    		$UserEnt[$ent_id][] = $row['user_name'] . '(лучшая половина)';
+    		
     	$ent .= '<nobr>' . $EntArr[$ent_id]['ent_title'] . ( in_array( $ent_id, $arr_t_real ) ? '<span title="Участвует" style="color:green; font-size:18; cursor:pointer;">(+)</span>' : '' ) . '</nobr><br>';
     }
     
@@ -149,6 +158,7 @@ if ( $ent == '' )
 echo $ent;
 ?></td>
 <td><?= $row['user_car_exist'] ? 'Есть' : 'Нет'?><?= $row['user_car_exist'] ? ( $row['user_car_use'] == 1 ? '<font color="green">, на машине</font>' : '<font color="red">, без машины</font>' ) : '' ?></td>
+<td><?= $row['user_pair_exist'] ? 'Есть' : 'Нет'?><?= $row['user_pair_exist'] ? ( $row['user_pair'] == 1 ? '<font color="green">, вдвоем</font>' : '<font color="red">, один</font>' ) : '' ?></td>
 <td><?= $row['user_email_sent'] ? 'Да' : 'Нет' ?></td>
 <td><?= $row['user_confirm'] ? 'Да' : 'Нет' ?></td>
 <td><?= $row['user_remarks'] ? htmlspecialchars( stripslashes( $row['user_remarks'] ) ) : 'Нет' ?></td>
@@ -206,7 +216,7 @@ function SendEmail( check_name )
 <br>
 <br>
 
-<table width="600" border="1">
+<table width="800" border="1">
 <tr>
 <td>Название мероприятия</td>
 <td>Приглашенны</td>

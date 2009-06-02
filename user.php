@@ -47,6 +47,9 @@ if ( !isset( $todo ) )
 <td>Машина есть?</td> <td><input type="checkbox" name="user_car_use" value="1" <?= isset ( $row['user_car_exist'] ) && $row['user_car_exist'] ? 'checked' : '' ?>></td>
 </tr>
 <tr>
+<td>Пара есть?</td> <td><input type="checkbox" name="user_pair_exist" value="1" <?= isset ( $row['user_pair_exist'] ) && $row['user_pair_exist'] ? 'checked' : '' ?>></td>
+</tr>
+<tr>
 <td>Допущен к:</td>
 <td>
 <?
@@ -90,7 +93,9 @@ else
     user_name       = '" . mysql_real_escape_string( $user_name ) . "',
     user_email      = '" . mysql_real_escape_string( $user_email ) . "',
     user_ent        = '" . mysql_real_escape_string( $user_ent ) . "',
-    user_car_exist    = '" . mysql_real_escape_string( isset ( $user_car_use ) && $user_car_use ? 1 : 0 ) . "'
+    user_car_exist    = '" . mysql_real_escape_string( isset ( $user_car_use ) && $user_car_use ? 1 : 0 ) . "',
+    user_pair_exist   = '" . mysql_real_escape_string( isset ( $user_pair_exist ) && $user_pair_exist ? 1 : 0 ) . "'
+    
     " . ( $user_id ? "WHERE user_id = $user_id " : "" )  . "
     ";
     $result = mysql_query( $query ) or eu( __FILE__, __LINE__, $query );

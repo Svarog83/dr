@@ -28,7 +28,8 @@ if ( isset ( $user_hash ) )
         user_confirm = 1,
         user_remarks    = '" . mysql_real_escape_string( $user_remarks ) . "',
         user_ent_real   = '" . mysql_real_escape_string( $user_ent ) . "',
-        user_car_use    = '" . mysql_real_escape_string( isset ( $use_car ) && $use_car == 1 ? 1 : 2 ) . "'
+        user_car_use    = '" . mysql_real_escape_string( isset ( $use_pair ) && $use_pair == 1 ? 1 : 2 ) . "',
+        user_pair    	= '" . mysql_real_escape_string( isset ( $use_pair ) && $use_pair == 1 ? 1 : 2 ) . "'
             WHERE 
         user_id = '{$UA['user_id']}'
         ";
@@ -44,6 +45,8 @@ $message = '
 ' . $UA['user_name'] . ' подтвердил(а) свое участие!'  . '
 
 ' . ( isset ( $use_car ) && $use_car == 1 ? 'Приедет НА машине ' : 'Приедет БЕЗ машины' ) . '
+
+' . ( isset ( $use_pair ) && $use_pair == 1 ? 'Будут вдвоем ' : 'Будет один' ) . '
 
 Подробности можно посмотреть на
 
@@ -181,7 +184,7 @@ if ( isset( $UA ) &&  $UA )
 		list ( $name, $fam ) = explode ( ' ', $UA['user_name'] ); 
 ?>
 
-<div style=" background-color: #CCFF00; color: #333333; padding-left: 30px; border-bottom: 2px #000000 solid;"><b><? echo 'Здравствуйте, глубокоуважаемый' . ( isset ( $name ) ? ', ' . $name : '' )?>!</b></div>
+<div style=" background-color: #CCFF00; color: #333333; padding-left: 30px; border-bottom: 2px #000000 solid;"><b><? echo 'Здравствуйте' . ( isset ( $name ) ? ', ' . $name : '' )?>!</b></div>
 
 
 <p class="text">
@@ -238,6 +241,15 @@ while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 </tr>
 <? endif; ?>
 
+<? if ( $UA['user_pair_exist'] ): ?>
+<tr>
+<td>С лучшей половиной?</td>
+<td><input type="radio" name="use_pair" value="1" <?= isset ( $UA['user_pair'] ) && $UA['user_pair'] == 1 ? 'checked' : '' ?>>Да<br>
+<input type="radio" name="use_pair" value="2" <?= isset ( $UA['user_pair'] ) && $UA['user_pair'] == 2 ? 'checked' : '' ?>>Нет<br>
+</td>
+</tr>
+<? endif; ?>
+
 <tr>
 <td>Комментарии<br>
 (время прибытия,<br> пожелания и т.п.)</td>
@@ -272,6 +284,26 @@ function CheckForm()
         alert ( 'Укажи, плиз, собираешься ли ты на машине или нет!' );
     }
     else
+    {
+	    var obj = document.form.use_pair;
+	    if ( obj )
+	    {
+	        ok = false;
+	        for ( var i = 0 ; i < obj.length; i++)
+	          if ( document.form.use_pair[i].checked)
+	          {
+	             ok = true;
+	             break;
+	          }
+	    }
+	    
+	    if ( !ok )
+	    {
+	        alert ( 'Надо указать, вдвоем вы будете или нет!' );
+	    }
+    }
+    
+    if ( ok )
         document.form.submit();
 }
 //-->
@@ -397,7 +429,7 @@ function execute()
     var time = 2500;
     
     if ( currentStep >= 8 )
-    	time = 1400;
+    	time = 1600;
     	
     if (currentStep == steps.length )	
     	time = 5000;
