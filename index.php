@@ -194,9 +194,20 @@ if ( isset( $UA ) &&  $UA )
 <br>
 <br>
 
+Турнир по боулингу будет проходить в заведение "Боулинг Клуб Первый" (<a href="http://bouling1.ru/index.html" target="_blank">http://bouling1.ru/index.html</a>), карта проезда здесь (<a href="http://bouling1.ru/kontakty.html" target="_blank">http://bouling1.ru/kontakty.html</a>). <a href="http://maps.google.ru/maps?f=q&source=s_q&hl=ru&geocode=&q=%D0%BF%D1%80%D0%BE%D1%82%D0%BE%D0%BF%D0%BE%D0%BF%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9+%D0%B4+3&sll=55.780543,37.634611&sspn=0.005442,0.013819&ie=UTF8&ll=55.782486,37.634783&spn=0.010884,0.027637&z=15&iwloc=Al" target="_blank">Точка на карте в Google Maps</a>
 
+<br>
+<br>
+
+Большая просьба подтвердить свое участие и написать примерное время прибытия, чтобы мы могли составить турнирную таблицу.
+
+<br>
+<br>
+Победителю гарантируется великолепный подарок!<a href="#podarok" title="Подробности"><font style="+2">*<font></a>
 
 <div class="line"></div>
+
+
 
 <form name="form" method="POST" action="./index.php">
 
@@ -243,7 +254,7 @@ while ( $row = mysql_fetch_array( $result, MYSQL_ASSOC ) )
 
 <? if ( $UA['user_pair_exist'] ): ?>
 <tr>
-<td>С лучшей половиной?</td>
+<td>С парой?</td>
 <td><input type="radio" name="use_pair" value="1" <?= isset ( $UA['user_pair'] ) && $UA['user_pair'] == 1 ? 'checked' : '' ?>>Да<br>
 <input type="radio" name="use_pair" value="2" <?= isset ( $UA['user_pair'] ) && $UA['user_pair'] == 2 ? 'checked' : '' ?>>Нет<br>
 </td>
@@ -315,6 +326,7 @@ function CheckForm()
 </p>
 	<br>
 		
+<span id="podarok" style="color:black;">* Подарочный сертификат на возможность развести именинников по домам. Дерзайте:)!</span>
 	
 </td>
 </tr>
@@ -325,6 +337,8 @@ function CheckForm()
 </td>
 </tr>
 </table>
+
+
 
 <?
 }
